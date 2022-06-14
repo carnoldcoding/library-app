@@ -16,12 +16,49 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 3rem;
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.377);
 }
 .container .navbar div:first-of-type {
   height: 70px;
   width: 70px;
   background: url("./assets/book.png") no-repeat center;
   background-size: contain;
+}
+.container .card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  padding: 2rem;
+  gap: 1.5rem;
+}
+.container .card-grid .card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  background: #F9F9F9;
+  border-radius: 3%;
+  height: 200px;
+  box-shadow: 0 4px 3px 1px rgba(0, 0, 0, 0.219);
+  overflow: hidden;
+  transition: transform 0.1s ease;
+}
+.container .card-grid .card:hover {
+  box-shadow: 0 4px 3px 1px rgba(0, 0, 0, 0.322);
+  cursor: pointer;
+  transform: scale(1.02);
+}
+.container .card-grid .card .image {
+  background: url("./assets/lotr.jpg") no-repeat center;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+}
+.container .card-grid .card .text-content {
+  padding: 1rem;
+  line-height: 1.75rem;
+}
+.container .card-grid .card .text-content p {
+  margin-left: 1px;
 }
 
 /*# sourceMappingURL=styles.css.map */
