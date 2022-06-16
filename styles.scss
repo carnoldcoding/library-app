@@ -7,8 +7,12 @@ $confirmation-color: #D0F8D4;
 $negation-color: #E36161;
 
 $navbar-background: #E3E3E3;
+$card-background: #F9F9F9;
 
 $font-roboto: 'Roboto', sans-serif;
+
+$card-top-height: 200px;
+$card-bottom-height: 200px;
 
 //Css
 *{
@@ -28,12 +32,102 @@ $font-roboto: 'Roboto', sans-serif;
         justify-content: space-between;
         align-items: center;
         padding: 0 3rem;
+        box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.377);
 
         div:first-of-type{
             height: 70px;
             width: 70px;
-            background: url("./assets/book.png") no-repeat center;
+            background: url("./assets/hp.png") no-repeat center;
             background-size: contain;
+        }
+    }
+
+    .card-grid{
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        padding: 2rem;
+        gap: 1.5rem;
+
+        .card{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow:0 3px 5px 2px rgba(0, 0, 0, 0.377);
+            border-radius: 3%;
+
+            .card-top{
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: flex-end;
+                background: $card-background;
+                height: $card-top-height;
+                width: 100%;
+                overflow: hidden;
+                transition: transform .1s ease;
+    
+                .image{
+                    background: url("./assets/lotr.jpg") no-repeat center;
+                    background-size: cover;
+                    width: 100%;
+                    height: 100%;
+                    border-top-left-radius: 3%;
+                    border-top-right-radius: 3%;
+                }
+    
+                .text-content{
+                    padding: 1rem;
+                    line-height: 1.75rem;
+                    p{
+                        margin-left: 1px;
+                    }
+                }
+            }
+
+            .card-bottom{
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                height: $card-bottom-height;
+                width: 100%;
+                border-top: 1px solid black;                
+                .buttons{
+                    display: flex;
+                    justify-content: center;
+                    gap: 5%;
+                    margin-bottom: 1rem;
+                    .button{
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        border-radius: .3rem;
+                        width: 40%;
+                        height: 30px;
+                        box-shadow: 0 3px 4px .1px rgba(0, 0, 0, 0.158);
+                        transition: all .125s ease;
+                        user-select: none;
+
+                        &:hover{
+                            cursor: pointer;
+                            box-shadow: 0 3px 5px .5px rgba(0, 0, 0, 0.349);
+                            transform: scale(1.02);
+
+                        }
+                    }
+                    div:first-of-type{
+                        background: $primary-color;
+                        &:hover{
+                            background: #ffc954;
+                        }
+                    }
+                    div:last-of-type{
+                        background: $negation-color;
+                        &:hover{
+                            background: #ff7979;
+                        }
+                    }
+                }
+            }
         }
     }
 }

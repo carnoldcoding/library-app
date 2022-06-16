@@ -16,12 +16,94 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 3rem;
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.377);
 }
 .container .navbar div:first-of-type {
   height: 70px;
   width: 70px;
-  background: url("./assets/book.png") no-repeat center;
+  background: url("./assets/hp.png") no-repeat center;
   background-size: contain;
+}
+.container .card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  padding: 2rem;
+  gap: 1.5rem;
+}
+.container .card-grid .card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 3px 5px 2px rgba(0, 0, 0, 0.377);
+  border-radius: 3%;
+}
+.container .card-grid .card .card-top {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  background: #F9F9F9;
+  height: 200px;
+  width: 100%;
+  overflow: hidden;
+  transition: transform 0.1s ease;
+}
+.container .card-grid .card .card-top .image {
+  background: url("./assets/lotr.jpg") no-repeat center;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  border-top-left-radius: 3%;
+  border-top-right-radius: 3%;
+}
+.container .card-grid .card .card-top .text-content {
+  padding: 1rem;
+  line-height: 1.75rem;
+}
+.container .card-grid .card .card-top .text-content p {
+  margin-left: 1px;
+}
+.container .card-grid .card .card-bottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 200px;
+  width: 100%;
+  border-top: 1px solid black;
+}
+.container .card-grid .card .card-bottom .buttons {
+  display: flex;
+  justify-content: center;
+  gap: 5%;
+  margin-bottom: 1rem;
+}
+.container .card-grid .card .card-bottom .buttons .button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.3rem;
+  width: 40%;
+  height: 30px;
+  box-shadow: 0 3px 4px 0.1px rgba(0, 0, 0, 0.158);
+  transition: all 0.125s ease;
+  user-select: none;
+}
+.container .card-grid .card .card-bottom .buttons .button:hover {
+  cursor: pointer;
+  box-shadow: 0 3px 5px 0.5px rgba(0, 0, 0, 0.349);
+  transform: scale(1.02);
+}
+.container .card-grid .card .card-bottom .buttons div:first-of-type {
+  background: #FFBE31;
+}
+.container .card-grid .card .card-bottom .buttons div:first-of-type:hover {
+  background: #ffc954;
+}
+.container .card-grid .card .card-bottom .buttons div:last-of-type {
+  background: #E36161;
+}
+.container .card-grid .card .card-bottom .buttons div:last-of-type:hover {
+  background: #ff7979;
 }
 
 /*# sourceMappingURL=styles.css.map */
