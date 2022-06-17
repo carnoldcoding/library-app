@@ -41,9 +41,13 @@ for(let i=0; i<cardCount; i++){
     cardGrid.appendChild(card);
 }
 
-const cardToggle = document.querySelector(".icon > i");
-const cardBottom = document.querySelector(".card-bottom");
-cardToggle.addEventListener("click", ()=>{
-    cardBottom.classList.toggle("hidden");
-    cardToggle.classList.toggle("active");
+const cards = document.querySelectorAll(".card");
+cards.forEach((card)=>{
+    const toggle = card.querySelector(".icon > i");
+    const cardBottom = card.querySelector(".card-bottom");
+
+    toggle.addEventListener("click", ()=>{
+        toggle.classList.toggle("active");
+        cardBottom.classList.toggle("hidden");
+    })
 })
