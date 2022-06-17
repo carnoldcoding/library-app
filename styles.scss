@@ -57,6 +57,7 @@ $card-bottom-height: 200px;
 
             .card-top{
                 display: flex;
+                z-index: 2;
                 flex-direction: column;
                 align-items: flex-start;
                 justify-content: flex-end;
@@ -107,6 +108,7 @@ $card-bottom-height: 200px;
 
             .card-bottom{
                 display: flex;
+                z-index: 1;
                 flex-direction: column;
                 justify-content: flex-end;
                 height: $card-bottom-height;
