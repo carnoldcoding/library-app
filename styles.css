@@ -75,7 +75,7 @@
   padding: 1rem;
 }
 .container .card-grid .card .card-top .text-content .icon i {
-  transition: all 0.5s ease;
+  transition: all 0.2s ease;
 }
 .container .card-grid .card .card-top .text-content .icon i:hover {
   cursor: pointer;
@@ -90,10 +90,11 @@
   height: 200px;
   width: 100%;
   border-top: 1px solid black;
-  transition: all 0.5s ease;
+  transition: all 0.2s ease;
   transform-origin: top;
 }
 .container .card-grid .card .card-bottom.hidden {
+  background-size: 0px;
   height: 0px;
   opacity: 0;
   visibility: hidden;
