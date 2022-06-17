@@ -45,4 +45,5 @@ const cardToggle = document.querySelector(".icon > i");
 const cardBottom = document.querySelector(".card-bottom");
 cardToggle.addEventListener("click", ()=>{
     cardBottom.classList.toggle("hidden");
+    cardToggle.classList.toggle("active");
 })

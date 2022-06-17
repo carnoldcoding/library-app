@@ -93,8 +93,12 @@ $card-bottom-height: 200px;
                         align-items: center;
                         padding: 1rem;
                         i{
+                            transition: all .5s ease;
                             &:hover{
                                 cursor: pointer;
+                            }
+                            &.active{
+                                transform: rotate(180deg);
                             }
                         }
                     }
@@ -108,9 +112,13 @@ $card-bottom-height: 200px;
                 height: $card-bottom-height;
                 width: 100%;
                 border-top: 1px solid black;
-                  
+                transition: all .5s ease;
+                transform-origin: top;
+
                 &.hidden{
-                    display: none;
+                    height: 0px;
+                    opacity: 0;
+                    visibility: hidden;
                 }
 
                 .buttons{

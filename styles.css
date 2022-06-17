@@ -74,8 +74,14 @@
   align-items: center;
   padding: 1rem;
 }
+.container .card-grid .card .card-top .text-content .icon i {
+  transition: all 0.5s ease;
+}
 .container .card-grid .card .card-top .text-content .icon i:hover {
   cursor: pointer;
+}
+.container .card-grid .card .card-top .text-content .icon i.active {
+  transform: rotate(180deg);
 }
 .container .card-grid .card .card-bottom {
   display: flex;
@@ -84,9 +90,13 @@
   height: 200px;
   width: 100%;
   border-top: 1px solid black;
+  transition: all 0.5s ease;
+  transform-origin: top;
 }
 .container .card-grid .card .card-bottom.hidden {
-  display: none;
+  height: 0px;
+  opacity: 0;
+  visibility: hidden;
 }
 .container .card-grid .card .card-bottom .buttons {
   display: flex;
