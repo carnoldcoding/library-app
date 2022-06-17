@@ -85,6 +85,9 @@
   width: 100%;
   border-top: 1px solid black;
 }
+.container .card-grid .card .card-bottom.hidden {
+  display: none;
+}
 .container .card-grid .card .card-bottom .buttons {
   display: flex;
   justify-content: center;

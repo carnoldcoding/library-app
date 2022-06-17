@@ -40,3 +40,9 @@ for(let i=0; i<cardCount; i++){
     card.classList.add("card");
     cardGrid.appendChild(card);
 }
+
+const cardToggle = document.querySelector(".icon > i");
+const cardBottom = document.querySelector(".card-bottom");
+cardToggle.addEventListener("click", ()=>{
+    cardBottom.classList.toggle("hidden");
+})
