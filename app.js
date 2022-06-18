@@ -34,13 +34,6 @@ library.addToLibrary();
 */
 
 const cardGrid = document.querySelector(".card-grid");
-const cardCount = 10;
-for(let i=0; i<cardCount; i++){
-    let card = document.createElement("div");
-    card.classList.add("card");
-    card.classList.add("hidden");
-    cardGrid.appendChild(card);
-}
 
 const cards = document.querySelectorAll(".card");
 cards.forEach((card)=>{
