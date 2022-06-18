@@ -54,6 +54,12 @@ $card-bottom-height: 200px;
             align-items: center;
             box-shadow:0 3px 5px 2px rgba(0, 0, 0, 0.377);
             border-radius: 3%;
+            height: $card-bottom-height + $card-top-height;
+            transition: all .1s ease;
+
+            &.hidden{
+                height: $card-top-height;
+            }
 
             .card-top{
                 display: flex;
@@ -118,10 +124,7 @@ $card-bottom-height: 200px;
                 transform-origin: top;
 
                 &.hidden{
-                    background-size: 0px;
                     height: 0px;
-                    opacity: 0;
-                    visibility: hidden;
                 }
 
                 .buttons{
@@ -144,7 +147,6 @@ $card-bottom-height: 200px;
                             cursor: pointer;
                             box-shadow: 0 3px 5px .5px rgba(0, 0, 0, 0.349);
                             transform: scale(1.02);
-
                         }
                     }
                     div:first-of-type{

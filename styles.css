@@ -36,6 +36,11 @@
   align-items: center;
   box-shadow: 0 3px 5px 2px rgba(0, 0, 0, 0.377);
   border-radius: 3%;
+  height: 400px;
+  transition: all 0.1s ease;
+}
+.container .card-grid .card.hidden {
+  height: 200px;
 }
 .container .card-grid .card .card-top {
   display: flex;
@@ -96,10 +101,7 @@
   transform-origin: top;
 }
 .container .card-grid .card .card-bottom.hidden {
-  background-size: 0px;
   height: 0px;
-  opacity: 0;
-  visibility: hidden;
 }
 .container .card-grid .card .card-bottom .buttons {
   display: flex;

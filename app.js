@@ -34,10 +34,11 @@ library.addToLibrary();
 */
 
 const cardGrid = document.querySelector(".card-grid");
-const cardCount = 0;
+const cardCount = 10;
 for(let i=0; i<cardCount; i++){
     let card = document.createElement("div");
     card.classList.add("card");
+    card.classList.add("hidden");
     cardGrid.appendChild(card);
 }
 
@@ -48,6 +49,15 @@ cards.forEach((card)=>{
 
     toggle.addEventListener("click", ()=>{
         toggle.classList.toggle("active");
+        card.classList.toggle("hidden");
+
+        //if card is going to shrink, speed up transition to prevent bumping
+        if(!cardBottom.classList.contains("hidden")){
+            cardBottom.style.transition = "all .05s ease";
+        }else{
+            cardBottom.style.transition = "all .2s ease";
+        }
         cardBottom.classList.toggle("hidden");
+
     })
 })
