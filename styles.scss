@@ -15,6 +15,8 @@ $font-roboto: 'Roboto', sans-serif;
 $card-top-height: 200px;
 $card-bottom-height: 200px;
 
+$input-background: #e6e6e6;
+
 //Css
 *{
     margin: 0;
@@ -53,7 +55,7 @@ $card-bottom-height: 200px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            box-shadow:0 3px 5px 2px rgba(0, 0, 0, 0.377);
+            box-shadow:0 5px 5px 2px rgba(0, 0, 0, 0.26);
             border-radius: 3%;
             height: $card-bottom-height + $card-top-height;
             transition: all .1s ease;
@@ -166,6 +168,24 @@ $card-bottom-height: 200px;
             }
         }
     }
+    //General Buttons
+    .button{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: .3rem;
+        width: 40%;
+        height: 30px;
+        box-shadow: 0 3px 4px .1px rgba(0, 0, 0, 0.158);
+        transition: all .125s ease;
+        user-select: none;
+
+        &:hover{
+            cursor: pointer;
+            box-shadow: 0 3px 5px .5px rgba(0, 0, 0, 0.349);
+            transform: scale(1.02);
+        }
+    }
 
     .add-button{
         position: absolute;
@@ -176,12 +196,83 @@ $card-bottom-height: 200px;
         padding: 1.25rem 1rem;
         border-radius: 50%;
         box-shadow: 0px 5px 6px 1px rgba(0, 0, 0, 0.178);
-
-        transition: all .2s ease;
+        transition: all .3s ease;
         &:hover{
             cursor: pointer;
             background: $primary-color-light;
             box-shadow: 0px 5px 6px 2px rgba(0, 0, 0, 0.185);
+        }
+    }
+    .add-card-form-container{
+        z-index: 3;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100vw;
+        background: rgba(0, 0, 0, 0.137);
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &.hidden{
+            display: none;
+        }
+
+        .add-card-form{
+            background: $card-background;
+            height: 70vh;
+            width: clamp(300px, 60vw, 500px);
+            border-radius: .5rem;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+
+            .forms{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 2rem;
+
+                width: 100%;
+
+                .form-input{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    width: 100%;
+
+                    label{
+                        display: none;
+                    }
+                    
+                    input{
+                        height: 40px;
+                        width: 70%;
+                        background: $input-background;
+                        border-radius: .25rem;
+                        padding: 0 .25rem;
+                        font-size: 1rem;
+                    }
+                }
+            }
+
+            .form-buttons{
+                display: flex;
+                justify-content: center;
+                gap: 1rem;
+                width: 100%;
+                div:first-of-type{
+                    background: $confirmation-color;
+                }
+                div:last-of-type{
+                    background: $negation-color;
+                }
+            }
         }
     }
 }

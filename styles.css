@@ -34,7 +34,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: 0 3px 5px 2px rgba(0, 0, 0, 0.377);
+  box-shadow: 0 5px 5px 2px rgba(0, 0, 0, 0.26);
   border-radius: 3%;
   height: 400px;
   transition: all 0.1s ease;
@@ -137,6 +137,22 @@
 .container .card-grid .card .card-bottom .buttons div:last-of-type:hover {
   background: #ff7979;
 }
+.container .button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.3rem;
+  width: 40%;
+  height: 30px;
+  box-shadow: 0 3px 4px 0.1px rgba(0, 0, 0, 0.158);
+  transition: all 0.125s ease;
+  user-select: none;
+}
+.container .button:hover {
+  cursor: pointer;
+  box-shadow: 0 3px 5px 0.5px rgba(0, 0, 0, 0.349);
+  transform: scale(1.02);
+}
 .container .add-button {
   position: absolute;
   bottom: 50px;
@@ -146,12 +162,75 @@
   padding: 1.25rem 1rem;
   border-radius: 50%;
   box-shadow: 0px 5px 6px 1px rgba(0, 0, 0, 0.178);
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
 }
 .container .add-button:hover {
   cursor: pointer;
   background: #ffcc5e;
   box-shadow: 0px 5px 6px 2px rgba(0, 0, 0, 0.185);
+}
+.container .add-card-form-container {
+  z-index: 3;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.137);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container .add-card-form-container.hidden {
+  display: none;
+}
+.container .add-card-form-container .add-card-form {
+  background: #F9F9F9;
+  height: 70vh;
+  width: clamp(300px, 60vw, 500px);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.container .add-card-form-container .add-card-form .forms {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+}
+.container .add-card-form-container .add-card-form .forms .form-input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.container .add-card-form-container .add-card-form .forms .form-input label {
+  display: none;
+}
+.container .add-card-form-container .add-card-form .forms .form-input input {
+  height: 40px;
+  width: 70%;
+  background: #e6e6e6;
+  border-radius: 0.25rem;
+  padding: 0 0.25rem;
+  font-size: 1rem;
+}
+.container .add-card-form-container .add-card-form .form-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+}
+.container .add-card-form-container .add-card-form .form-buttons div:first-of-type {
+  background: #D0F8D4;
+}
+.container .add-card-form-container .add-card-form .form-buttons div:last-of-type {
+  background: #E36161;
 }
 
 /*# sourceMappingURL=styles.css.map */

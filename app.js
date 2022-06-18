@@ -35,6 +35,7 @@ library.addToLibrary();
 
 const cardGrid = document.querySelector(".card-grid");
 
+//Add Toggle to All Cards
 const cards = document.querySelectorAll(".card");
 cards.forEach((card)=>{
     const toggle = card.querySelector(".icon > i");
@@ -51,6 +52,17 @@ cards.forEach((card)=>{
             cardBottom.style.transition = "all .2s ease";
         }
         cardBottom.classList.toggle("hidden");
-
     })
+})
+
+//Add Card Form
+const formContainer = document.querySelector(".add-card-form-container");
+const addButton = document.querySelector(".add-button");
+
+addButton.addEventListener("click", ()=>{
+    formContainer.classList.toggle("hidden");
+})
+
+formContainer.addEventListener("click", ()=>{
+    formContainer.classList.toggle("hidden");
 })
