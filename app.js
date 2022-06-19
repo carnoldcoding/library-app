@@ -88,6 +88,11 @@ function Library(){
 
         //EventListeners
 
+        deleteButton.addEventListener("click", ()=>{
+            this.removeFromLibrary(book);
+            card.remove();
+        })
+
         toggleIcon.addEventListener("click", ()=>{
             toggleIcon.classList.toggle("active");
             card.classList.toggle("hidden");
@@ -152,5 +157,5 @@ formCancel.addEventListener("click", ()=>{
     formContainer.classList.toggle("hidden");
 })
 
-const testBook = new Book("Harry Potter", "Ur mom", "https://animetroops.com/wp-content/uploads/2022/01/jjk-171-delayed-scaled.jpg");
+const testBook = new Book("JJK", "Me", "https://animetroops.com/wp-content/uploads/2022/01/jjk-171-delayed-scaled.jpg");
 library.addToLibrary(testBook);
