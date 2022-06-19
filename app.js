@@ -140,16 +140,34 @@ formSubmit.addEventListener("click", ()=>{
     const formAuthor = formContainer.querySelector("#author");
     const formImage = formContainer.querySelector("#url");
 
-    //Add book to library
-    const title = formTitle.value;
-    const author = formAuthor.value;
-    const image = formImage.value;
-    const book = new Book(title, author, image);
-    library.addToLibrary(book);
+    //Warnings
+    const titleWarning = formContainer.querySelector(".forms > div:first-of-type > div");
+    const authorWarning = formContainer.querySelector(".forms > div:nth-child(2) > div");
+    const imageWarning = formContainer.querySelector(".forms > div:last-of-type > div");
+    
+    if(formTitle.value != "" && formAuthor.value != "" && formImage.value != ""){
+        //Add book to library
+        const title = formTitle.value; 
+        const author = formAuthor.value;
+        const image = formImage.value;
+        const book = new Book(title, author, image);
+        library.addToLibrary(book);
 
-    //Reset and Submit form
-    formReset();
-    formContainer.classList.toggle("hidden");
+        //Reset and Submit form
+        titleWarning.classList.add("hidden");
+        authorWarning.classList.add("hidden");
+        imageWarning.classList.add("hidden");
+        formReset();
+        formContainer.classList.toggle("hidden");
+    }else{
+        const formTitleFilled = formTitle.value == "" ? false: true;
+        const formAuthorFilled = formAuthor.value == "" ? false : true;
+        const formImageFilled = formImage.value == "" ? false : true;
+
+        formTitleFilled ? titleWarning.classList.add("hidden") : titleWarning.classList.remove("hidden");
+        formAuthorFilled ? authorWarning.classList.add("hidden") : authorWarning.classList.remove("hidden");
+        formImageFilled ? imageWarning.classList.add("hidden") : imageWarning.classList.remove("hidden");
+    }
 })
 
 formCancel.addEventListener("click", ()=>{

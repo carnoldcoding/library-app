@@ -211,10 +211,15 @@
   align-items: center;
   width: 100%;
 }
-.container .add-card-form-container .add-card-form .forms .form-input label {
+.container .add-card-form-container .add-card-form .forms .form-input div {
+  align-self: flex-start;
+  margin-left: 15%;
+  color: #E36161;
+}
+.container .add-card-form-container .add-card-form .forms .form-input div.hidden {
   display: none;
 }
-.container .add-card-form-container .add-card-form .forms .form-input input {
+.container .add-card-form-container .add-card-form .forms .form-input input[type=text] {
   height: 40px;
   width: 70%;
   background: #e6e6e6;

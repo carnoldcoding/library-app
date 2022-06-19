@@ -248,11 +248,17 @@ $input-background: #e6e6e6;
                     align-items: center;
                     width: 100%;
 
-                    label{
-                        display: none;
+                    div{
+                        align-self: flex-start;
+                        margin-left: 15%;
+                        color: $negation-color;
+
+                        &.hidden{
+                            display: none;
+                        }
                     }
                     
-                    input{
+                    input[type="text"]{
                         height: 40px;
                         width: 70%;
                         background: $input-background;
