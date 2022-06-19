@@ -155,6 +155,7 @@
   transform: scale(1.02);
 }
 .container .add-button {
+  z-index: 10;
   position: absolute;
   bottom: 50px;
   right: 10vw;
