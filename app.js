@@ -115,7 +115,6 @@ const library = new Library();
     ==Debugging==
     Create card grid
 */
-
 const cardGrid = document.querySelector(".card-grid");
 
 //Add Card Form
@@ -144,12 +143,14 @@ formSubmit.addEventListener("click", ()=>{
     const titleWarning = formContainer.querySelector(".forms > div:first-of-type > div");
     const authorWarning = formContainer.querySelector(".forms > div:nth-child(2) > div");
     const imageWarning = formContainer.querySelector(".forms > div:last-of-type > div");
+    const imageRegex = /(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/;
     
-    if(formTitle.value != "" && formAuthor.value != "" && formImage.value != ""){
+    if(formTitle.value != "" && formAuthor.value != "" && imageRegex.test(formImage.value)){
         //Add book to library
         const title = formTitle.value; 
         const author = formAuthor.value;
         const image = formImage.value;
+
         const book = new Book(title, author, image);
         library.addToLibrary(book);
 
@@ -162,7 +163,7 @@ formSubmit.addEventListener("click", ()=>{
     }else{
         const formTitleFilled = formTitle.value == "" ? false: true;
         const formAuthorFilled = formAuthor.value == "" ? false : true;
-        const formImageFilled = formImage.value == "" ? false : true;
+        const formImageFilled = imageRegex.test(formImage.value);
 
         formTitleFilled ? titleWarning.classList.add("hidden") : titleWarning.classList.remove("hidden");
         formAuthorFilled ? authorWarning.classList.add("hidden") : authorWarning.classList.remove("hidden");
