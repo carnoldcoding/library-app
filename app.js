@@ -13,7 +13,6 @@ function Book(title, author, image) {
 function Library(){
     this.catalogue = []
 
-    //Methods
     this.addToLibrary = function(book){
         this.catalogue.push(book);
         this.renderBook(book);
@@ -87,7 +86,6 @@ function Library(){
 
 
         //EventListeners
-
         deleteButton.addEventListener("click", ()=>{
             this.removeFromLibrary(book);
             card.remove();
@@ -109,12 +107,8 @@ function Library(){
     }
 }
 
+//Initialize Library
 const library = new Library();
-
-/*
-    ==Debugging==
-    Create card grid
-*/
 const cardGrid = document.querySelector(".card-grid");
 
 //Add Card Form
@@ -129,11 +123,11 @@ const formReset = function(){
     formContainer.querySelector("#url").value = "";
 }
 
-
 addButton.addEventListener("click", ()=>{
     formContainer.classList.toggle("hidden");
 })
 
+//Form Controls
 formSubmit.addEventListener("click", ()=>{
     const formTitle = formContainer.querySelector("#title");
     const formAuthor = formContainer.querySelector("#author");
@@ -176,5 +170,6 @@ formCancel.addEventListener("click", ()=>{
     formContainer.classList.toggle("hidden");
 })
 
+//Testing and Debugging
 const testBook = new Book("JJK", "Me", "https://animetroops.com/wp-content/uploads/2022/01/jjk-171-delayed-scaled.jpg");
 library.addToLibrary(testBook);
