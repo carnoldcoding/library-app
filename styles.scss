@@ -124,7 +124,7 @@ $input-background: #e6e6e6;
                 display: flex;
                 z-index: 1;
                 flex-direction: column;
-                justify-content: flex-end;
+                justify-content: space-between;
                 height: $card-bottom-height;
                 width: 100%;
                 border-top: 1px solid black;
@@ -132,7 +132,47 @@ $input-background: #e6e6e6;
                 transform-origin: top;
 
                 &.hidden{
+                    justify-content: flex-end;
                     height: 0px;
+                }
+
+                .read-toggle-wrapper{
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: flex-start;
+                    width: 100%;
+                    height: 100%;
+                    padding-top: 10px;
+
+                    .read-toggle{
+                        background: rgb(168, 168, 168);
+                        border-radius: 1rem;
+                        height: 25px;
+                        width: 50px;
+                        transition: all .2s ease;
+
+                        &:hover{
+                            cursor: pointer;
+                        }
+
+                        &::after{
+                            background: rgb(233, 233, 233);
+                            content: "";
+                            position: absolute;
+                            height: 25px;
+                            width: 25px;
+                            border-radius: 50%;
+                            transition: all .2s ease;
+                        }
+
+                        &.active{
+                            background: $primary-color;
+                            &::after{
+                                transform: translateX(25px);
+                                background: #ffe19f;
+                            }
+                        }
+                    }
                 }
 
                 .buttons{
@@ -158,6 +198,7 @@ $input-background: #e6e6e6;
                         }
                     }
                     div:first-of-type{
+                        display: none;
                         background: $primary-color;
                         &:hover{
                             background: #ffc954;

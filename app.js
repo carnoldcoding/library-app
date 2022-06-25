@@ -4,10 +4,11 @@
 */
 
 //Classes
-function Book(title, author, image) {
+function Book(title, author, image, readStatus) {
     this.title = title,
     this.author = author,
-    this.image = image
+    this.image = image,
+    this.readStatus = readStatus
 }
 
 function Library(){
@@ -70,6 +71,18 @@ function Library(){
         cardBottom.classList.add("hidden");
         card.appendChild(cardBottom);
 
+        const readToggleWrapper = document.createElement("div");
+        readToggleWrapper.classList.add("read-toggle-wrapper");
+        cardBottom.appendChild(readToggleWrapper);
+
+        const readText = document.createElement("h3");
+        readText.textContent = "Complete";
+        readToggleWrapper.appendChild(readText);
+
+        const readToggle = document.createElement("div");
+        readToggle.classList.add("read-toggle");
+        readToggleWrapper.appendChild(readToggle);
+    
         const buttons = document.createElement("div");
         buttons.classList.add("buttons");
         cardBottom.appendChild(buttons);
@@ -86,6 +99,11 @@ function Library(){
 
 
         //EventListeners
+        readToggle.addEventListener("click", ()=>{
+            readToggle.classList.toggle("active");
+            this.readStatus = readToggle.classList.contains("active") ? true : false;
+        })
+
         deleteButton.addEventListener("click", ()=>{
             this.removeFromLibrary(book);
             card.remove();
@@ -139,13 +157,15 @@ formSubmit.addEventListener("click", ()=>{
     const imageWarning = formContainer.querySelector(".forms > div:last-of-type > div");
     const imageRegex = /(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/;
     
-    if(formTitle.value != "" && formAuthor.value != "" && imageRegex.test(formImage.value)){
+    if(formTitle.value != "" && formAuthor.value != "" && (imageRegex.test(formImage.value) || formImage.value == "")){
         //Add book to library
+        const genericImageUrl = "https://www.kindpng.com/picc/m/430-4308026_harry-potter-book-clipart-hd-png-download.png";
         const title = formTitle.value; 
         const author = formAuthor.value;
-        const image = formImage.value;
+        const image = formImage.value == "" ? genericImageUrl : formImage.value;
+        console.log(image);
 
-        const book = new Book(title, author, image);
+        const book = new Book(title, author, image, false);
         library.addToLibrary(book);
 
         //Reset and Submit form
@@ -157,7 +177,7 @@ formSubmit.addEventListener("click", ()=>{
     }else{
         const formTitleFilled = formTitle.value == "" ? false: true;
         const formAuthorFilled = formAuthor.value == "" ? false : true;
-        const formImageFilled = imageRegex.test(formImage.value);
+        const formImageFilled = imageRegex.test(formImage.value) || formImage.value == "";
 
         formTitleFilled ? titleWarning.classList.add("hidden") : titleWarning.classList.remove("hidden");
         formAuthorFilled ? authorWarning.classList.add("hidden") : authorWarning.classList.remove("hidden");
