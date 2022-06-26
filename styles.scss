@@ -373,6 +373,29 @@ $input-background: #e6e6e6;
                         font-size: 1rem;
                     }
                 }
+                .image-preview{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background-color: $input-background;
+                    background-image: url("https://www.kindpng.com/picc/m/430-4308026_harry-potter-book-clipart-hd-png-download.png");
+                    background-size: cover;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    border-radius: .25rem;
+                    height: 200px;
+                    width: 72%;
+                    user-select: none;
+
+                    h3{
+                        opacity: .6;
+                        font-size: 2rem;
+                        background: #333;
+                        color: white;
+                        padding: .5rem;
+                        border-radius: 1rem;
+                    }
+                }
             }
 
             .form-buttons{

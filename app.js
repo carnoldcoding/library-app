@@ -210,11 +210,25 @@ const formContainer = document.querySelector(".add-card-form-container");
 const formCancel = document.querySelector(".form-buttons > div:last-of-type")
 const formSubmit = document.querySelector(".form-buttons > div:first-of-type")
 const addButton = document.querySelector(".add-button");
+const formImageField = document.querySelector(".forms > div:nth-child(3) > input");
+const imagePreview = document.querySelector(".image-preview");
+const imageRegex = /(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/;
+
+console.log(formImageField);
+//Image Preview EventListener
+formImageField.addEventListener("input", ()=>{
+    if(formImageField.value != "" && imageRegex.test(formImageField.value)){
+        imagePreview.style.backgroundImage = `url(${formImageField.value})`;
+    }else{
+        imagePreview.style.backgroundImage = `url("https://www.kindpng.com/picc/m/430-4308026_harry-potter-book-clipart-hd-png-download.png")`
+    }
+})
 
 const formReset = function(){
     formContainer.querySelector("#title").value = "";
     formContainer.querySelector("#author").value = "";
     formContainer.querySelector("#url").value = "";
+    imagePreview.style.backgroundImage = `url("https://www.kindpng.com/picc/m/430-4308026_harry-potter-book-clipart-hd-png-download.png")`;
 }
 
 addButton.addEventListener("click", ()=>{
@@ -230,8 +244,7 @@ formSubmit.addEventListener("click", ()=>{
     //Warnings
     const titleWarning = formContainer.querySelector(".forms > div:first-of-type > div");
     const authorWarning = formContainer.querySelector(".forms > div:nth-child(2) > div");
-    const imageWarning = formContainer.querySelector(".forms > div:last-of-type > div");
-    const imageRegex = /(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/;
+    const imageWarning = formContainer.querySelector(".forms > div:nth-child(3) > div");
     
     if(formTitle.value != "" && formAuthor.value != "" && (imageRegex.test(formImage.value) || formImage.value == "")){
         //Add book to library
