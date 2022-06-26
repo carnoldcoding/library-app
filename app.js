@@ -121,6 +121,7 @@ function Library(){
         for(let i=0;i<5;i++){
             const starElement = document.createElement("div");
             starElement.classList.add("star");
+            starElement.setAttribute("value", 5-i);
             const star = {
                 value: 5-i,
                 element: starElement,
@@ -171,7 +172,6 @@ function Library(){
         })
 
         toggleIcon.addEventListener("click", ()=>{
-            console.log(book);
             toggleIcon.classList.toggle("active");
             card.classList.toggle("hidden");
 
@@ -186,6 +186,13 @@ function Library(){
         //Render Card Values
         window.addEventListener("load", ()=>{
             book.readStatus ? readToggle.classList.add("active") : readToggle.classList.remove("active");
+            //Color Stars
+            const starElements = cardBottom.querySelectorAll(".star");
+            starElements.forEach(star =>{
+                if(star.getAttribute("value") < book.rating){
+                    star.classList.add('active');
+                }
+            })
             
         })
 
