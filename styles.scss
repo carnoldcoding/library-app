@@ -328,6 +328,7 @@ $input-background: #e6e6e6;
 
         .add-card-form{
             background: $card-background;
+            transform: translateY(-50px);
             height: 70vh;
             width: clamp(300px, 60vw, 500px);
             border-radius: .5rem;
