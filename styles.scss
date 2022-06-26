@@ -235,7 +235,7 @@ $input-background: #e6e6e6;
 
     .add-button{
         z-index: 10;
-        position: absolute;
+        position: relative;
         bottom: 50px;
         right: 10vw;
         background: $primary-color;

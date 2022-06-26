@@ -195,7 +195,7 @@
 }
 .container .add-button {
   z-index: 10;
-  position: absolute;
+  position: relative;
   bottom: 50px;
   right: 10vw;
   background: #FFBE31;
