@@ -27,6 +27,9 @@ $input-background: #e6e6e6;
 
 .container{
     font-family: $font-roboto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
     .navbar{
         height: 100px;
@@ -233,26 +236,41 @@ $input-background: #e6e6e6;
         }
     }
 
-    .add-button{
+    .add-button-wrapper{
         z-index: 10;
-        position: relative;
-        bottom: 50px;
-        right: 10vw;
-        background: $primary-color;
-        color: white;
-        padding: 1.25rem 1rem;
-        border-radius: 50%;
-        box-shadow: 0px 5px 6px 1px rgba(0, 0, 0, 0.178);
-        transition: all .3s ease;
-        &:hover{
-            cursor: pointer;
-            background: $primary-color-light;
-            box-shadow: 0px 5px 6px 2px rgba(0, 0, 0, 0.185);
+        display: flex;
+        justify-content: flex-end;
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        padding: 5vw;
+
+        @media screen and (max-width: 590px) {
+            position: relative;
+            justify-content: center;
+            padding: 0;
+            padding-bottom: 5vw;
+        }
+
+        .add-button{
+            z-index: 10;
+            position: relative;
+            background: $primary-color;
+            color: white;
+            padding: 1.25rem 1rem;
+            border-radius: 50%;
+            box-shadow: 0px 5px 6px 1px rgba(0, 0, 0, 0.178);
+            transition: all .3s ease;
+            &:hover{
+                cursor: pointer;
+                background: $primary-color-light;
+                box-shadow: 0px 5px 6px 2px rgba(0, 0, 0, 0.185);
+            }
         }
     }
     .add-card-form-container{
-        z-index: 3;
-        position: absolute;
+        z-index: 99;
+        position: fixed;
         top: 0;
         left: 0;
         height: 100vh;
