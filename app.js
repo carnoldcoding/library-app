@@ -158,9 +158,12 @@ function Library(){
         editButton.classList.add("button");
         buttons.appendChild(editButton);
 
-
-
         //EventListeners
+
+        editButton.addEventListener("click", ()=>{
+            formContainer.classList.toggle("hidden");
+        })
+
         readToggle.addEventListener("click", ()=>{
             book.readStatus = !book.readStatus;
             book.readStatus ? readToggle.classList.add("active") : readToggle.classList.remove("active");
@@ -280,9 +283,3 @@ formCancel.addEventListener("click", ()=>{
     formReset();
     formContainer.classList.toggle("hidden");
 })
-
-//Local Storage
-
-// //Testing and Debugging
-// const testBook = new Book("JJK", "Me", "https://animetroops.com/wp-content/uploads/2022/01/jjk-171-delayed-scaled.jpg");
-// library.addToLibrary(testBook);

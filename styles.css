@@ -224,6 +224,7 @@ h1, h2, h3, p {
   transform: unset;
 }
 .container .card-grid .card .card-bottom .buttons div:last-of-type {
+  display: none;
   background: #eea300;
   color: white;
 }

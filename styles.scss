@@ -264,6 +264,7 @@ h1, h2, h3, p{
                         }
                     }
                     div:last-of-type{
+                        display: none;
                         background: $primary-btn-color;
                         color: white;
                     }
