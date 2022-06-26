@@ -8,7 +8,8 @@ function Book(title, author, image, readStatus) {
     this.title = title,
     this.author = author,
     this.image = image,
-    this.readStatus = readStatus
+    this.readStatus = readStatus,
+    this.rating = 0
 }
 
 function Library(){
@@ -87,9 +88,13 @@ function Library(){
         cardBottom.classList.add("hidden");
         card.appendChild(cardBottom);
 
+        const actionWrapper = document.createElement("div");
+        actionWrapper.classList.add("action-wrapper");
+        cardBottom.appendChild(actionWrapper);
+        
         const readToggleWrapper = document.createElement("div");
         readToggleWrapper.classList.add("read-toggle-wrapper");
-        cardBottom.appendChild(readToggleWrapper);
+        actionWrapper.appendChild(readToggleWrapper);
 
         const readText = document.createElement("h3");
         readText.textContent = "Complete";
@@ -98,6 +103,45 @@ function Library(){
         const readToggle = document.createElement("div");
         readToggle.classList.add("read-toggle");
         readToggleWrapper.appendChild(readToggle);
+
+        const ratingWrapper = document.createElement("div");
+        ratingWrapper.classList.add("rating-wrapper");
+        actionWrapper.appendChild(ratingWrapper);
+
+        const ratingText = document.createElement("h3");
+        ratingText.textContent = "Rating";
+        ratingWrapper.appendChild(ratingText);
+
+        const starWrapper = document.createElement("div");
+        starWrapper.classList.add("star-wrapper");
+        ratingWrapper.appendChild(starWrapper);
+
+        //Create rating component
+        const stars = [];
+        for(let i=0;i<5;i++){
+            const starElement = document.createElement("div");
+            starElement.classList.add("star");
+            const star = {
+                value: 5-i,
+                element: starElement,
+                active: false
+            }
+            starWrapper.appendChild(starElement);
+            stars.push(star);
+
+            //EventListener
+            starElement.addEventListener("click", ()=>{
+                book.rating = star.value;
+                stars.forEach((star) => {
+                    star.element.classList.remove("active");
+                })
+                for(let j = 0; j < star.value; j++){
+                    stars[4-j].element.classList.add("active");
+                }
+                book.rating = star.value;
+                this.storeLibrary();
+            })
+        }
     
         const buttons = document.createElement("div");
         buttons.classList.add("buttons");
@@ -116,8 +160,6 @@ function Library(){
 
         //EventListeners
         readToggle.addEventListener("click", ()=>{
-            // readToggle.classList.toggle("active");
-            // this.readStatus = readToggle.classList.contains("active") ? true : false;
             book.readStatus = !book.readStatus;
             book.readStatus ? readToggle.classList.add("active") : readToggle.classList.remove("active");
             this.storeLibrary();
@@ -129,7 +171,7 @@ function Library(){
         })
 
         toggleIcon.addEventListener("click", ()=>{
-            book.readStatus ? readToggle.classList.add("active") : readToggle.classList.remove("active");
+            console.log(book);
             toggleIcon.classList.toggle("active");
             card.classList.toggle("hidden");
 
@@ -139,6 +181,12 @@ function Library(){
                 cardBottom.style.transition = "all .2s ease";
             }
             cardBottom.classList.toggle("hidden");
+        })
+
+        //Render Card Values
+        window.addEventListener("load", ()=>{
+            book.readStatus ? readToggle.classList.add("active") : readToggle.classList.remove("active");
+            
         })
 
         grid.appendChild(card);

@@ -111,12 +111,48 @@
   justify-content: flex-end;
   height: 0px;
 }
+.container .card-grid .card .card-bottom .action-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.container .card-grid .card .card-bottom .action-wrapper .rating-wrapper {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+.container .card-grid .card .card-bottom .action-wrapper .rating-wrapper h3 {
+  padding-left: 15px;
+}
+.container .card-grid .card .card-bottom .action-wrapper .rating-wrapper .star-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 5px;
+}
+.container .card-grid .card .card-bottom .action-wrapper .rating-wrapper .star-wrapper .star {
+  height: 20px;
+  width: 20px;
+  background: lightblue;
+  transition: all 0.2s ease;
+}
+.container .card-grid .card .card-bottom .action-wrapper .rating-wrapper .star-wrapper .star:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+  background: blue;
+}
+.container .card-grid .card .card-bottom .action-wrapper .rating-wrapper .star-wrapper .star:hover ~ div {
+  background: blue;
+}
+.container .card-grid .card .card-bottom .action-wrapper .rating-wrapper .star-wrapper .star.active {
+  background: blue;
+}
 .container .card-grid .card .card-bottom .read-toggle-wrapper {
   display: flex;
   justify-content: space-around;
   align-items: flex-start;
   width: 100%;
-  height: 100%;
   padding-top: 10px;
 }
 .container .card-grid .card .card-bottom .read-toggle-wrapper .read-toggle {
