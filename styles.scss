@@ -401,6 +401,9 @@ h1, h2, h3, p{
                         color: white;
                         padding: .5rem;
                         border-radius: 1rem;
+                        @media screen and (max-width: 520px) {
+                            font-size: 1.5rem;
+                        }
                     }
                 }
             }

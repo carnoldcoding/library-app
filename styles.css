@@ -348,6 +348,11 @@ h1, h2, h3, p {
   padding: 0.5rem;
   border-radius: 1rem;
 }
+@media screen and (max-width: 520px) {
+  .container .add-card-form-container .add-card-form .forms .image-preview h3 {
+    font-size: 1.5rem;
+  }
+}
 .container .add-card-form-container .add-card-form .form-buttons {
   display: flex;
   justify-content: center;
