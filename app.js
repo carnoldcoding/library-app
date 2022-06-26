@@ -12,17 +12,33 @@ function Book(title, author, image, readStatus) {
 }
 
 function Library(){
-    this.catalogue = []
+    this.catalogue = [];
+
+    this.storeLibrary = function(){
+        window.localStorage.setItem("catalogue", JSON.stringify(this.catalogue));
+    }
+
+    this.refreshLibrary = function(){
+        const catalogueObject = JSON.parse(window.localStorage.getItem("catalogue"));
+        for(let i in catalogueObject){
+            this.catalogue.push(catalogueObject[i]);
+        }
+        this.catalogue.forEach((book)=>{
+            this.renderBook(book);
+        })
+    }
 
     this.addToLibrary = function(book){
         this.catalogue.push(book);
         this.renderBook(book);
+        this.storeLibrary();
     }
 
     this.removeFromLibrary = function(bookToRemove){
-        this.catalogue = this.catalogue.filter((book) => {
-            book.title == bookToRemove.title;
-        })
+        console.log(this.catalogue);
+        this.catalogue = this.catalogue.filter((book) => book.title != bookToRemove.title);
+        
+        this.storeLibrary();
     }
 
     //Book Component
@@ -100,8 +116,11 @@ function Library(){
 
         //EventListeners
         readToggle.addEventListener("click", ()=>{
-            readToggle.classList.toggle("active");
-            this.readStatus = readToggle.classList.contains("active") ? true : false;
+            // readToggle.classList.toggle("active");
+            // this.readStatus = readToggle.classList.contains("active") ? true : false;
+            book.readStatus = !book.readStatus;
+            book.readStatus ? readToggle.classList.add("active") : readToggle.classList.remove("active");
+            this.storeLibrary();
         })
 
         deleteButton.addEventListener("click", ()=>{
@@ -110,6 +129,7 @@ function Library(){
         })
 
         toggleIcon.addEventListener("click", ()=>{
+            book.readStatus ? readToggle.classList.add("active") : readToggle.classList.remove("active");
             toggleIcon.classList.toggle("active");
             card.classList.toggle("hidden");
 
@@ -128,6 +148,7 @@ function Library(){
 //Initialize Library
 const library = new Library();
 const cardGrid = document.querySelector(".card-grid");
+library.refreshLibrary();
 
 //Add Card Form
 const formContainer = document.querySelector(".add-card-form-container");
@@ -163,7 +184,6 @@ formSubmit.addEventListener("click", ()=>{
         const title = formTitle.value; 
         const author = formAuthor.value;
         const image = formImage.value == "" ? genericImageUrl : formImage.value;
-        console.log(image);
 
         const book = new Book(title, author, image, false);
         library.addToLibrary(book);
@@ -190,6 +210,8 @@ formCancel.addEventListener("click", ()=>{
     formContainer.classList.toggle("hidden");
 })
 
-//Testing and Debugging
-const testBook = new Book("JJK", "Me", "https://animetroops.com/wp-content/uploads/2022/01/jjk-171-delayed-scaled.jpg");
-library.addToLibrary(testBook);
+//Local Storage
+
+// //Testing and Debugging
+// const testBook = new Book("JJK", "Me", "https://animetroops.com/wp-content/uploads/2022/01/jjk-171-delayed-scaled.jpg");
+// library.addToLibrary(testBook);
