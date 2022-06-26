@@ -1,11 +1,12 @@
 //Imports
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap');
 
 //Variables
 $primary-color: #FFBE31;
 $primary-color-light: #ffcc5e;
 $confirmation-color: #D0F8D4;
 $negation-color: #E36161;
+$primary-btn-color: #eea300;
 
 $navbar-background: #E3E3E3;
 $card-background: #F9F9F9;
@@ -23,6 +24,10 @@ $input-background: #e6e6e6;
     padding: 0;
     outline: 0;
     border: 0;
+}
+
+h1, h2, h3, p{
+    font-weight: 300;
 }
 
 .container{
@@ -250,17 +255,17 @@ $input-background: #e6e6e6;
                         }
                     }
                     div:first-of-type{
-                        display: none;
-                        background: $primary-color;
+                        box-shadow: unset;
+                        border: 1px solid $negation-color;
+                        color: $negation-color;
                         &:hover{
-                            background: #ffc954;
+                            box-shadow: unset;
+                            transform: unset;
                         }
                     }
                     div:last-of-type{
-                        background: $negation-color;
-                        &:hover{
-                            background: #ff7979;
-                        }
+                        background: $primary-btn-color;
+                        color: white;
                     }
                 }
             }
@@ -404,11 +409,18 @@ $input-background: #e6e6e6;
                 justify-content: center;
                 gap: 1rem;
                 width: 100%;
+                font-weight: 500;
                 div:first-of-type{
-                    background: $confirmation-color;
+                    color: $primary-btn-color;
+                    box-shadow: unset;
+                    outline: 1px solid $primary-btn-color;
+                    &:hover{
+                        transform: unset;
+                    }
                 }
                 div:last-of-type{
-                    background: $negation-color;
+                    color: white;
+                    background: $primary-btn-color;
                 }
             }
         }

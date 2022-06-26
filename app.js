@@ -147,16 +147,17 @@ function Library(){
         const buttons = document.createElement("div");
         buttons.classList.add("buttons");
         cardBottom.appendChild(buttons);
+        
+        const deleteButton = document.createElement("div");
+        deleteButton.textContent = "DELETE";
+        deleteButton.classList.add("button");
+        buttons.appendChild(deleteButton);
 
         const editButton = document.createElement("div");
-        editButton.textContent = "Edit";
+        editButton.textContent = "EDIT";
         editButton.classList.add("button");
         buttons.appendChild(editButton);
 
-        const deleteButton = document.createElement("div");
-        deleteButton.textContent = "Delete";
-        deleteButton.classList.add("button");
-        buttons.appendChild(deleteButton);
 
 
         //EventListeners
@@ -167,8 +168,10 @@ function Library(){
         })
 
         deleteButton.addEventListener("click", ()=>{
-            this.removeFromLibrary(book);
-            card.remove();
+            if(confirm("This action is irreversible, are you sure you want to delete this book?")){
+                this.removeFromLibrary(book);
+                card.remove();
+            }
         })
 
         toggleIcon.addEventListener("click", ()=>{
@@ -207,8 +210,8 @@ library.refreshLibrary();
 
 //Add Card Form
 const formContainer = document.querySelector(".add-card-form-container");
-const formCancel = document.querySelector(".form-buttons > div:last-of-type")
-const formSubmit = document.querySelector(".form-buttons > div:first-of-type")
+const formCancel = document.querySelector(".form-buttons > div:first-of-type")
+const formSubmit = document.querySelector(".form-buttons > div:last-of-type")
 const addButton = document.querySelector(".add-button");
 const formImageField = document.querySelector(".forms > div:nth-child(3) > input");
 const imagePreview = document.querySelector(".image-preview");

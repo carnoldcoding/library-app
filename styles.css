@@ -1,9 +1,13 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap");
 * {
   margin: 0;
   padding: 0;
   outline: 0;
   border: 0;
+}
+
+h1, h2, h3, p {
+  font-weight: 300;
 }
 
 .container {
@@ -211,17 +215,17 @@
   transform: scale(1.02);
 }
 .container .card-grid .card .card-bottom .buttons div:first-of-type {
-  display: none;
-  background: #FFBE31;
+  box-shadow: unset;
+  border: 1px solid #E36161;
+  color: #E36161;
 }
 .container .card-grid .card .card-bottom .buttons div:first-of-type:hover {
-  background: #ffc954;
+  box-shadow: unset;
+  transform: unset;
 }
 .container .card-grid .card .card-bottom .buttons div:last-of-type {
-  background: #E36161;
-}
-.container .card-grid .card .card-bottom .buttons div:last-of-type:hover {
-  background: #ff7979;
+  background: #eea300;
+  color: white;
 }
 .container .button {
   display: flex;
@@ -348,12 +352,19 @@
   justify-content: center;
   gap: 1rem;
   width: 100%;
+  font-weight: 500;
 }
 .container .add-card-form-container .add-card-form .form-buttons div:first-of-type {
-  background: #D0F8D4;
+  color: #eea300;
+  box-shadow: unset;
+  outline: 1px solid #eea300;
+}
+.container .add-card-form-container .add-card-form .form-buttons div:first-of-type:hover {
+  transform: unset;
 }
 .container .add-card-form-container .add-card-form .form-buttons div:last-of-type {
-  background: #E36161;
+  color: white;
+  background: #eea300;
 }
 
 /*# sourceMappingURL=styles.css.map */
