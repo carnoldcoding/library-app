@@ -138,6 +138,7 @@ $input-background: #e6e6e6;
                 &.hidden{
                     justify-content: flex-end;
                     height: 0px;
+                    border-top: 0px;
                 }
 
                 .action-wrapper{
